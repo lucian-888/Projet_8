@@ -12,7 +12,6 @@ html {
     scroll-behavior: smooth;
 }
   
-
 /* Reset some default styles */
 body, h1, h2, p {
     margin: 0;
@@ -25,17 +24,14 @@ body, h1, h2, p {
 }
 
 /* En-tête */
-
 .header {
     background-color:  rgb(2, 2, 93); /* Background color */
     color: white; /* Text color */
     position: fixed; /* Fixes the header to the top */
     top: 0; /* Positions it at the top */
-    
     width: 100%; /* Full width */
     z-index: 1000; /* Ensures it stays above other content */
 }
-
 
 header h1 {
     text-align: center; /* Centering the title */
@@ -45,6 +41,7 @@ header p {
     text-align: center;
     border-bottom: 2px solid  #db4d06;
 }
+
 .header nav {
     text-align: center; /* Centering the navigation */
 }
@@ -84,8 +81,6 @@ section {
     margin-left: 25px;
     margin-right: 25px;
 }
-
-
 
 /* Hide English sections by default */
 .lang-en {
@@ -167,8 +162,7 @@ footer {
 
    .grid-item {
     margin-right: 30px;
-    
-}
+    }
 }
 
 .skills-grid {
