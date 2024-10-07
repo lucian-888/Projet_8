@@ -1,0 +1,263 @@
+/* Styles globaux */
+body {
+    font-family: 'Courier New', sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+  
+
+/* Reset some default styles */
+body, h1, h2, p {
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 80%;
+    margin: auto;
+}
+
+/* En-tête */
+
+.header {
+    background-color:  rgb(2, 2, 93); /* Background color */
+    color: white; /* Text color */
+    position: fixed; /* Fixes the header to the top */
+    top: 0; /* Positions it at the top */
+    
+    width: 100%; /* Full width */
+    z-index: 1000; /* Ensures it stays above other content */
+}
+
+
+header h1 {
+    text-align: center; /* Centering the title */
+}
+
+header p {
+    text-align: center;
+    border-bottom: 2px solid  #db4d06;
+}
+.header nav {
+    text-align: center; /* Centering the navigation */
+}
+
+.header nav ul {
+    list-style-type: none; /* Removes default list styling */
+    display: inline-flex; /* Aligns items in a row */
+}
+
+.header nav ul li {
+    margin: 0 25px; /* Spacing between items */
+}
+
+.header nav ul li a {
+    color: white; /* Link color */
+    text-decoration: none; /* Removes underline from links */
+    transition: all 0.4s ease;
+}
+
+.header nav ul li a:hover,
+.header nav ul li a:active,
+.header nav ul li a:active {
+    background-color: #db4d06; /* Changes background on hover */
+    border-radius: 20px;
+    padding: 0 8px;
+}
+
+/* Main content styles to prevent overlap with header */
+.content {
+    margin-top: 170px; /* Adjust this based on header height */
+}
+
+/* Sections */
+section {
+    padding-top: 160px; /* Adjust this value to match your header height */
+    margin-top: -60px; /* Negative margin to offset the padding */
+    margin-left: 25px;
+    margin-right: 25px;
+}
+
+
+
+/* Hide English sections by default */
+.lang-en {
+    display: none;
+ }
+
+h2 {
+    border-bottom: 2px solid  #db4d06;
+}
+
+/* Compétences */
+.skills-list {
+    list-style-type: none;
+}
+
+.skills-list li {
+    background-color: #e7e7e7;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+/* Grille des projets */
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.grid-item {
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.grid-item h3 {
+    margin-top: 0;
+}
+
+/* Formulaire de contact */
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+form label {
+    margin-top: 10px;
+}
+
+form input,
+form textarea {
+    padding: 10px;
+}
+
+form button {
+    margin-top: 10px;
+}
+
+/* Pied de page */
+footer {
+    text-align: center;
+    padding-top:20px;
+}
+
+.social-links {
+    background-color: rgb(2, 2, 93);
+    display: flex;
+    justify-content : center;
+    gap:70px; /* Adjusts space between icons */
+    padding-top: 17px;
+    padding-bottom: 8px
+}
+
+/* Media Queries */
+@media screen and (max-width: 768px) {
+   .container {
+       width: 95%;
+   }
+
+   .grid-item {
+    margin-right: 30px;
+    
+}
+}
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+.skill-item {
+    background-color: #f0f0f0;
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.skill-item:hover {
+    transform: translateY(-5px);
+}
+
+.skill-item i {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.skill-item span {
+    display: block;
+    font-size: 0.9em;
+    color: black;
+}
+
+@media (max-width: 768px) {
+    .skills-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+
+/* Media query for mobile devices */
+@media screen and (max-width: 768px) {
+    .header nav ul {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        padding: 0;
+    }
+
+    .header nav ul li {
+        flex-basis: 33.33%; /* This will create 3 items per row */
+        text-align: center;
+        margin: 5px 0;
+    }
+
+    /* Adjust the last two items (Contact and Language toggle) */
+    .header nav ul li:nth-last-child(-n+2) {
+        flex-basis: 50%;
+    }
+
+    /* Additional adjustments for better mobile view */
+    .header {
+        padding: 10px 0;
+    }
+
+    .header h1 {
+        font-size: 1.5em;
+    }
+
+    #dev-title {
+        font-size: 1em;
+    }
+
+    .content {
+        margin-top: 240px; /* Adjust based on your header's new height */
+        
+    }
+
+    /* Sections */
+section {
+    padding-top: 240px; /* Adjust this value to match your header height */
+    margin-top: -190px; /* Negative margin to offset the padding */
+    margin-left: 25px;
+    margin-right: 25px;
+}
+
+.header nav ul li a:hover {
+    background-color: #db4d06; /* Changes background on hover */
+    
+    padding: 0;
+}
+}
