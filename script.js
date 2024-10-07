@@ -24,26 +24,43 @@ document.getElementById('toggle-language').addEventListener('click', function() 
 });
 
 
-// Add an event listener for the 'submit' event on the form with id 'contact-form'
-document.getElementById('contact-form').addEventListener('submit', function(event) {
-    // Prevent the default form submission behavior
-    event.preventDefault();
-    
-    // Use EmailJS to send the form data
-    // 'this' refers to the form element
-    emailjs.sendForm('service_a3l9l1x', 'template_8gg5c5y', this)
-        .then(function(response) {
-            // This function runs if the email is sent successfully
-            console.log('SUCCESS!', response.status, response.text);
-            // Show a success message to the user
-            alert('Message sent successfully!');
-            // Reset the form fields after successful submission
-            document.getElementById('contact-form').reset();
-        }, function(error) {
-            // This function runs if there's an error in sending the email
-            console.log('FAILED...', error);
-            // Show an error message to the user
-            alert('Failed to send message. Please try again.');
-        });
-  });
-  
+// script.js
+
+document.addEventListener('DOMContentLoaded', function () {
+    emailjs.init("8HRqXxpchv2ROza4w");
+
+    // Fonction pour envoyer le formulaire
+    function sendForm(event) {
+        event.preventDefault();
+        const form = event.target;
+
+        // Récupérer les valeurs du formulaire
+        const userName = form.querySelector('input[name="user_name"]').value;
+        const userEmail = form.querySelector('input[name="user_email"]').value;
+        const message = form.querySelector('textarea[name="message"]').value;
+
+        // Préparer les paramètres pour EmailJS
+        const templateParams = {
+            from_name: userName,
+            from_email: userEmail,
+            message: message
+        };
+
+        // Envoyer l'email via EmailJS
+        emailjs.send('service_a3l9l1x', 'template_8gg5c5y', templateParams)
+            .then(function (response) {
+                alert('Message envoyé avec succès !');
+                form.reset();
+            }, function (error) {
+                alert('Échec de l\'envoi du message. Veuillez réessayer plus tard.');
+                console.error('EmailJS Error:', error);
+            });
+    }
+
+    // Attacher l'événement submit aux deux formulaires
+    const forms = document.querySelectorAll('#contact-form-fr, #contact-form-en');
+    forms.forEach(form => {
+        form.addEventListener('submit', sendForm);
+    });
+});
+
