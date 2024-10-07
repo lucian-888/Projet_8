@@ -47,7 +47,7 @@ document.addEventListener('DOMContentLoaded', function () {
         };
 
         // Envoyer l'email via EmailJS
-        emailjs.send('service_a3l9l1x', 'template_8gg5c5y', templateParams)
+        emailjs.send('service_a3l9l1x', 'template_8gg5c5y', this)
             .then(function (response) {
                 alert('Message envoyé avec succès !');
                 form.reset();
