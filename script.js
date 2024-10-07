@@ -1,32 +1,7 @@
-document.getElementById('toggle-language').addEventListener('click', function() {
-    // Toggle visibility of French and English sections
-    const frElements = document.querySelectorAll('.lang-fr');
-    const enElements = document.querySelectorAll('.lang-en');
-
-    frElements.forEach(element => {
-        element.style.display = element.style.display === 'none' ? 'block' : 'none';
-    });
-
-    enElements.forEach(element => {
-        element.style.display = element.style.display === 'none' ? 'block' : 'none';
-    });
-
-    // Change button text based on current language
-    this.textContent = this.textContent === 'English' ? 'Français' : 'English';
-
-    // Change the developer title
-    const frDevTitle = document.querySelector('header p.lang-fr');
-    const enDevTitle = document.querySelector('header p.lang-en');
-    if (frDevTitle && enDevTitle) {
-        frDevTitle.style.display = frDevTitle.style.display === 'none' ? 'block' : 'none';
-        enDevTitle.style.display = enDevTitle.style.display === 'none' ? 'block' : 'none';
-    }
-});
-
-
 // script.js
 
 document.addEventListener('DOMContentLoaded', function () {
+    // Initialiser EmailJS une seule fois
     emailjs.init("8HRqXxpchv2ROza4w");
 
     // Fonction pour envoyer le formulaire
@@ -41,18 +16,21 @@ document.addEventListener('DOMContentLoaded', function () {
 
         // Préparer les paramètres pour EmailJS
         const templateParams = {
-            from_name: userName,
-            from_email: userEmail,
+            user_name: userName,
+            user_email: userEmail,
             message: message
         };
 
-        // Envoyer l'email via EmailJS
-        emailjs.send('service_a3l9l1x', 'template_8gg5c5y', this)
+        // Envoyer l'email via EmailJS avec les bons paramètres
+        emailjs.send('service_a3l9l1x', 'template_8gg5c5y', templateParams)
             .then(function (response) {
-                alert('Message envoyé avec succès !');
+                // Détecter la langue du formulaire pour personnaliser le message d'alerte
+                const isFrench = form.id === 'contact-form-fr';
+                alert(isFrench ? 'Message envoyé avec succès !' : 'Message sent successfully!');
                 form.reset();
             }, function (error) {
-                alert('Échec de l\'envoi du message. Veuillez réessayer plus tard.');
+                const isFrench = form.id === 'contact-form-fr';
+                alert(isFrench ? 'Échec de l\'envoi du message. Veuillez réessayer plus tard.' : 'Failed to send message. Please try again later.');
                 console.error('EmailJS Error:', error);
             });
     }
@@ -62,5 +40,22 @@ document.addEventListener('DOMContentLoaded', function () {
     forms.forEach(form => {
         form.addEventListener('submit', sendForm);
     });
-});
 
+    // Gestion du changement de langue
+    document.getElementById('toggle-language').addEventListener('click', function() {
+        // Toggle visibility of French and English sections
+        const frElements = document.querySelectorAll('.lang-fr');
+        const enElements = document.querySelectorAll('.lang-en');
+
+        frElements.forEach(element => {
+            element.style.display = element.style.display === 'none' ? 'block' : 'none';
+        });
+
+        enElements.forEach(element => {
+            element.style.display = element.style.display === 'none' ? 'block' : 'none';
+        });
+
+        // Change button text based on current language
+        this.textContent = this.textContent === 'English' ? 'Français' : 'English';
+    });
+});
