@@ -59,15 +59,20 @@ header p {
     color: white; /* Link color */
     text-decoration: none; /* Removes underline from links */
     transition: all 0.4s ease;
+     padding: 0 8px;
+    border-radius: 20px;
 }
 
-.header nav ul li a:hover,
-.header nav ul li a:active,
-.header nav ul li a:active {
-    background-color: #db4d06; /* Changes background on hover */
+.header nav ul li a:hover {
+    background-color: #db4d06 !important; /* Changes background on hover */
+    
+}
+.header nav ul li a.active {
+    background-color: #db4d06 !important;
     border-radius: 20px;
     padding: 0 8px;
 }
+
 
 /* Main content styles to prevent overlap with header */
 .content {

@@ -60,3 +60,21 @@ document.addEventListener('DOMContentLoaded', function () {
         this.textContent = this.textContent === 'English' ? 'Français' : 'English';
     });
 });
+
+function setActiveLink(clickedLink) {
+    // Get all navigation links
+    const navLinks = document.querySelectorAll('.header nav ul li a');
+
+    // Remove active class from all links
+    navLinks.forEach(link => link.classList.remove("active"));
+    
+    // Add active class to clicked link
+    clickedLink.classList.add("active");
+}
+
+// Add this event listener to each navigation link
+document.querySelectorAll('.header nav ul li a').forEach(link => {
+    link.addEventListener("click", function(event) {
+        setActiveLink(this);
+    });
+});
