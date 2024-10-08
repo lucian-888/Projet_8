@@ -4,8 +4,8 @@ body {
     margin: 0;
     padding: 0;
     line-height: 1.6;
-    background-color: #f4f4f4;
-    color: #333;
+    background-color: black;   /*#f4f4f4;*/
+    color: white;   /*#333;*/
 }
 
 html {
@@ -25,25 +25,30 @@ body, h1, h2, p {
 
 /* En-tête */
 .header {
-    background-color:  rgb(2, 2, 93); /* Background color */
-    color: white; /* Text color */
+    background-color: #e7e7e7;    /*rgb(2, 2, 93);  Background color */
+    color: black; /* Text color */
     position: fixed; /* Fixes the header to the top */
     top: 0; /* Positions it at the top */
     width: 100%; /* Full width */
     z-index: 1000; /* Ensures it stays above other content */
+    padding-top: 17px;
 }
 
 header h1 {
     text-align: center; /* Centering the title */
+    color: black;
 }
 
 header p {
     text-align: center;
-    border-bottom: 2px solid  #db4d06;
+    border-bottom: 2px solid  #f4f4f4;
+    color: crimson;
 }
 
 .header nav {
     text-align: center; /* Centering the navigation */
+    padding-top: 12px;
+    padding-bottom: 12px;
 }
 
 .header nav ul {
@@ -56,7 +61,7 @@ header p {
 }
 
 .header nav ul li a {
-    color: white; /* Link color */
+    color: black; /* Link color */
     text-decoration: none; /* Removes underline from links */
     transition: all 0.4s ease;
      padding: 0 8px;
@@ -64,11 +69,11 @@ header p {
 }
 
 .header nav ul li a:hover {
-    background-color: #db4d06 !important; /* Changes background on hover */
+    background-color: #f4f4f4 /*#db4d06*/ !important; /* Changes background on hover */
     
 }
 .header nav ul li a.active {
-    background-color: #db4d06 !important;
+    background-color: #f4f4f4 /*#db4d06*/ !important;
     border-radius: 20px;
     padding: 0 8px;
 }
@@ -81,7 +86,7 @@ header p {
 
 /* Sections */
 section {
-    padding-top: 160px; /* Adjust this value to match your header height */
+    padding-top: 180px; /* Adjust this value to match your header height */
     margin-top: -60px; /* Negative margin to offset the padding */
     margin-left: 25px;
     margin-right: 25px;
@@ -93,8 +98,14 @@ section {
  }
 
 h2 {
-    border-bottom: 2px solid  #db4d06;
+    border-bottom: 2px solid  #f4f4f4;    /*#db4d06;*/
 }
+
+#apropos.lang-fr p,
+#apropos-en.lang-en p {
+    margin-top:10px;
+}
+
 
 /* Compétences */
 .skills-list {
@@ -109,20 +120,23 @@ h2 {
 
 /* Grille des projets */
 .grid-container {
+    margin-top: 17px;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 20px;
+    color: black;
 }
 
 .grid-item {
-    background-color: white;
+    background-color: #f4f4f4;
     padding: 20px;
     border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 15px rgba(255, 255, 255, 0.2);   /*box-shadow: 0 2px 5px rgba(0,0,0,0.1);*/
 }
 
 .grid-item h3 {
     margin-top: 0;
+    color: black;
 }
 
 /* Formulaire de contact */
@@ -147,12 +161,14 @@ form button {
 
 /* Pied de page */
 footer {
+    background-color:#e7e7e7;
     text-align: center;
     padding-top:20px;
+    color: black;
 }
 
 .social-links {
-    background-color: rgb(2, 2, 93);
+    /*background-color: rgb(2, 2, 93);*/
     display: flex;
     justify-content : center;
     gap:70px; /* Adjusts space between icons */
